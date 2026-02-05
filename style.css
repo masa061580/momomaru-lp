@@ -43,6 +43,7 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px;
+    overflow-x: hidden;
 }
 
 body {
@@ -678,8 +679,8 @@ a {
         display: flex;
     }
 
-    .nav-links .nav-link,
-    .nav-links .nav-btn {
+    .navbar .nav-links .nav-link,
+    .navbar .nav-links .nav-btn {
         padding: 1rem 2rem;
         color: var(--color-warm-white);
         text-align: center;
@@ -750,5 +751,56 @@ a {
     .profile-item {
         flex-direction: column;
         gap: var(--space-xs);
+    }
+}
+
+/* ===================================
+   Floating Contact Button
+   =================================== */
+.floating-contact-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background-color: var(--color-soft-black);
+    color: var(--color-warm-white);
+    border-radius: 50px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: var(--transition-fast);
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s ease-out 1s forwards;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.floating-contact-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    background-color: var(--color-charcoal);
+    border-color: var(--color-rose);
+}
+
+.floating-contact-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+@media (max-width: 768px) {
+    .floating-contact-btn {
+        bottom: 20px;
+        right: 20px;
+        padding: 10px 20px;
+        font-size: 0.85rem;
+    }
+    
+    .floating-contact-btn span {
+        display: inline-block; /* Ensure text is visible */
     }
 }
